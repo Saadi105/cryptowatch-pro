@@ -1,0 +1,23 @@
+# ============================================
+# .gitignore — Files NOT to push to GitHub
+# ============================================
+# These files contain secrets or generated code
+# that should never be in a public repository.
+# ============================================
+
+# Environment files — contain your passwords and secrets!
+.env
+*.env.local
+
+# Node modules — huge folders, reinstalled with npm install
+node_modules/
+*/node_modules/
+
+# React build output — generated files, not source code
+client/build/
+
+# Mac junk files
+.DS_Store
+
+# VS Code settings (optional to include)
+.vscode/

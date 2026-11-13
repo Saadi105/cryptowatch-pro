@@ -1,0 +1,120 @@
+/* ============================================
+   index.css — Global styles for CryptoWatch
+   ============================================
+   These styles apply to the entire app.
+   Component-specific styles live in each component file.
+   ============================================ */
+
+/* CSS Variables — our design tokens.
+   Define colors once here, use everywhere.
+   This makes changing the theme super easy later. */
+:root {
+  --green: #1d9e75;
+  --green-light: #e1f5ee;
+  --green-dark: #085041;
+
+  --red: #d85a30;
+  --red-light: #faece7;
+  --red-dark: #712b13;
+
+  --purple: #7f77dd;
+  --purple-light: #eeedfe;
+  --purple-dark: #3c3489;
+
+  --amber: #ef9f27;
+  --amber-light: #faeeda;
+  --amber-dark: #633806;
+
+  --blue: #378add;
+  --blue-light: #e6f1fb;
+  --blue-dark: #0c447c;
+
+  --gray-100: #f1efe8;
+  --gray-200: #d3d1c7;
+  --gray-400: #888780;
+  --gray-600: #5f5e5a;
+  --gray-900: #2c2c2a;
+
+  --bg: #f8f7f4;
+  --bg-card: #ffffff;
+  --text-primary: #1a1a1a;
+  --text-secondary: #666660;
+  --border: rgba(0, 0, 0, 0.08);
+  --border-hover: rgba(0, 0, 0, 0.15);
+
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  --font: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #141414;
+    --bg-card: #1e1e1e;
+    --text-primary: #f0f0f0;
+    --text-secondary: #9a9a9a;
+    --border: rgba(255, 255, 255, 0.08);
+    --border-hover: rgba(255, 255, 255, 0.15);
+  }
+}
+
+/* Reset — remove browser default styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font);
+  background-color: var(--bg);
+  color: var(--text-primary);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased; /* Makes text look sharper on Mac */
+}
+
+/* Scrollbar styling — makes it look cleaner */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--gray-200);
+  border-radius: 3px;
+}
+
+/* Utility classes used throughout the app */
+.text-green { color: var(--green); }
+.text-red { color: var(--red); }
+.text-secondary { color: var(--text-secondary); }
+.text-sm { font-size: 12px; }
+.text-xs { font-size: 11px; }
+.font-medium { font-weight: 500; }
+
+/* Animation for the live pulse dot */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* Row flash animations when price changes */
+@keyframes flashGreen {
+  0% { background-color: var(--green-light); }
+  100% { background-color: transparent; }
+}
+
+@keyframes flashRed {
+  0% { background-color: var(--red-light); }
+  100% { background-color: transparent; }
+}
+
+.flash-up { animation: flashGreen 0.7s ease; }
+.flash-down { animation: flashRed 0.7s ease; }
